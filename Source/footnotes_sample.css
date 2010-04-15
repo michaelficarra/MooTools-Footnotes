@@ -1,0 +1,55 @@
+.footnoteReference,
+.footnotes {
+	display: none;
+}
+
+/* Uncomment screen to use footnotes without the need to print. */ 
+@media /*screen,*/ print, embossed {
+	.footnoteReference {
+		display: inline;
+		vertical-align: super;
+		font-size: x-small;
+	}
+	.footnotes {
+		display: block;
+		padding-left: 15px;
+		page-break-inside: avoid;
+		orphans: 4;
+		widows: 6;
+	}
+	.footnotes .footnote {
+		page-break-before: avoid;
+		page-break-after: avoid;
+		page-break-inside: avoid;
+		/* Prevent normal list identifiers. */
+		list-style-type: none;
+	}
+	.footnotes .footnote .footnoteUrl {
+		font-style: oblique;
+	}
+	.footnotes .footnote .footnoteIdentifier {
+		margin-right: 0.6em;
+	}
+	.footnotes .footnote .footnoteIdentifier:after {
+		content: '.';
+	}
+	.footnoteReference, .footnotes .footnote .footnoteIdentifier {
+		font-family: monospace;
+		/* Use text-transform to choose case of identifier. Defaults to lowercase. */
+		text-transform: uppercase;
+	}
+
+	/* safely fall back if javascript is disabled */
+	*[href^=""]:after {
+		content: " (" attr(href) ")";
+		font-size: 90%;
+	}
+	*[cite^=""]:after {
+		content: " (" attr(cite) ")";
+		font-size: 90%;
+	}
+	.noted[href^=""]:after,
+	.noted[cite^=""]:after {
+		content: "";
+	}
+}
