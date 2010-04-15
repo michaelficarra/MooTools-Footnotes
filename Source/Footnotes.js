@@ -1,4 +1,5 @@
-/* ---
+/*
+---
 description: 
 license: LGPL
 authors: Michael Ficarra
