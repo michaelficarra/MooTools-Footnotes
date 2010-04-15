@@ -1,7 +1,7 @@
 Footnotes
 =========
 
-Footnotes finds all links or citations within a given Element and generates footnotes either at the bottom of the node or in another supplied Element. Takes into account multiple links pointing to the same URL and allows for configurable footnote identifiers (numeric, alpha, alphanumeric, greek, speciali chars, or any custom one). Inspired by Aaron Gustafson's article, [*Improving Link Display for Print*](http://www.alistapart.com/articles/improvingprint)
+Footnotes finds all links or citations within a given Element and generates footnotes either at the bottom of the node or in another supplied Element. Takes into account multiple links pointing to the same URL and allows for configurable footnote identifiers (numeric, alpha, alphanumeric, greek, speciali chars, or any custom one). Inspired by Aaron Gustafson's article, [*Improving Link Display for Print*](http://www.alistapart.com/articles/improvingprint).
 
 
 How To Use
