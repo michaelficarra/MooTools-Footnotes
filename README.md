@@ -9,7 +9,7 @@ How To Use
 
 Instantiate a new `Footnotes` by passing its constructor the `Element` or the ID of an `Element` to use as the target.
 
-	var SomeElement = document.id('element_identifier')
+	var someElement = document.id('element_identifier')
 	var notes = new Footnotes(someElement);
 
 	var notes = new Footnotes('element_identifier')
@@ -38,6 +38,7 @@ Can be any `Element` or a `String` containing the ID of an element. If this opti
 A set of characters to be used for creating unique identifiers for footnote references. The footnote number is essentially converted to the base of the number of characters. For example, `"alpha"`, which contains the letters *a* through *z* in order, would count up to z and continue to *aa*, *ab*, *ac*, etc. All other character sets, even those provided by the user, will act this same way. 
 
 May be one of:
+
 - `"numeric"`: numbers only
 - `"alpha"`: letters only
 - `"aphanumeric"`: numbers and letters
