@@ -4,7 +4,7 @@ description: Finds all links or citations for a given element and generates foot
 license: LGPL
 authors: Michael Ficarra
 requires: [Core,Array,Hash,Class,Options]
-provides: [StringScanner]
+provides: [Footnotes]
 ... */
 
 var Footnotes;
