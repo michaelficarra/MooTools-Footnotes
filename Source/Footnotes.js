@@ -2,7 +2,7 @@
 ---
 description: Finds all links or citations for a given element and generates footnotes
 license: LGPL
-authors: Michael Ficarra
+authors: ['Michael Ficarra']
 requires: [Core,Array,Hash,Class,Options]
 provides: [Footnotes]
 ... */
