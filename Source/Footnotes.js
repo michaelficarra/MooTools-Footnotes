@@ -7,8 +7,6 @@ requires: [Core,Array,Hash,Class,Options]
 provides: [Footnotes]
 ... */
 
-var Footnotes;
-
 (function(){
 
 	var predefinedCharsets = $H({
@@ -25,7 +23,7 @@ var Footnotes;
 			'&prop;','&there4;','&tilde;']
 	});
 
-	Footnotes = new Class({
+	this.Footnotes = new Class({
 
 		Implements: Options,
 		options: {
@@ -43,12 +41,12 @@ var Footnotes;
 			this.footnoteContainer = $(this.options.footnoteContainer);
 			if(!this.footnoteContainer) this.footnoteContainer = this.appendFootnoteContainer(this.target);
 			this.footnoteContainer.addClass('footnotes');
-			if(['object','hash'].contains($type(options)) && $defined(options.charset)){
-				switch($type(options.charset)){
-					case 'array':
+			if(['object','hash'].contains($type(options)) && options.charset!==undefined){
+				switch(options.charset.constructor){
+					case Array:
 						this.options.charset = options.charset;
 						break;
-					case 'string':
+					case String:
 						this.options.charset = predefinedCharsets.has(options.charset) ? predefinedCharsets[options.charset] : options.charset.split('');
 						break;
 					default:
@@ -71,15 +69,14 @@ var Footnotes;
 
 		clear: function(){
 			this.footnoteContainer.empty();
-			$$('.footnoteReference').dispose();
+			this.target.getElements('.footnoteReference').dispose();
 			this.target.getElements('.noted').removeClass('noted');
 			return this;
 		},
 
 		attempt: function(el){
 			if(el.hasClass('noted')) return;
-			var url = el.get('cite');
-			if(url===null) url = el.get('href');
+			var url = el.get('cite') || el.get('href');
 			if(url===null) return;
 			this.cite(el,url);
 		},
@@ -145,23 +142,21 @@ var Footnotes;
 				charset = predefinedCharsets['alpha'];
 				base = charset.length;
 			}
-			if(index<base) return charset[index];
+			if(index < base) return charset[index];
 			var result = '';
 			do {
 				result = charset[index % base] + result;
 				index = ((index / base) - 0.5).round();
-			} while(index>0);
+			} while(index > 0);
 			return result;
 		}.protect()
 
-	})
+	});
 
-})();
+}).call(this);
 
-Element.implement({
-	footnotes: function(footnoteContainer,options){
-		return (new Footnotes(this,footnoteContainer,options)).apply();
-	}
+Element.implement('footnotes',function(footnoteContainer,options){
+	return (new Footnotes(this,footnoteContainer,options)).apply();
 });
 
 /* Copyright 2010 Michael Ficarra
