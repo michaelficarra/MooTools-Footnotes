@@ -1,7 +1,7 @@
 name: Footnotes
 author: michael
 category: Utilities
-tags: [footnotes, print, citation, accessibility, a11y, usability]
+tags: [footnotes, print, citation, accessibility, a11y, usability, endnotes, reference, link, anchor, summary]
 current: 0.1
 docs: 'http://github.com/michaelficarra/MooTools-Footnotes/blob/master/README.md'
 demo: 'http://jsfiddle.net/wLhDu/1/'
