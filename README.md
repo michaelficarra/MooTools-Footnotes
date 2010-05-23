@@ -116,9 +116,19 @@ javascript disabled.
 TODO
 ----
 
-Currently planning a feature to add backreferences (a caret or
-something, as seen on Wikipedia) to each footnote that link to the
-places that the URL is referenced.
+* An option to add backreferences (a caret or something, as seen on
+Wikipedia) to each footnote that link to the places that the URL is
+referenced.
+* An option to fetch the favicon of the target website and display it
+next to the footnoteUrl. Class will be `footnoteIcon`.
+* The ability (and option to disable said ability) to expand `<abbr>`
+tags, showing the expanded abbreviation in the footnote. This will
+likely be a breaking change, as the `footnoteUrl` class will no
+longer properly describe the contents of that container. A
+transitional period (to continue until the next major version bump)
+will create containers that have both the old and new classes. A new
+class name has not been decided.
+
 
 
 Known Issues
